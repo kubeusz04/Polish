@@ -135,19 +135,129 @@
       animation: stickOn .5s ease both;
       position: relative;
     }
-    .lesson-badge {
+    .lesson-picker,
+    .summary-picker {
+      position: relative;
       display: inline-block;
+      z-index: 50;
+    }
+    .lesson-picker { margin-bottom: .75rem; }
+    .lesson-picker-btn,
+    .summary-picker-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
       font-family: 'Caveat', cursive;
       font-size: 1.35rem;
       font-weight: 700;
       color: var(--marker-red);
       background: var(--sticky-pink);
       border: 2px solid rgba(0,0,0,.08);
-      padding: .2rem 1.1rem .35rem;
+      padding: .2rem 1rem .35rem;
       border-radius: 2px;
-      margin-bottom: .75rem;
       box-shadow: var(--shadow);
       transform: rotate(-2deg);
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .lesson-picker-btn:hover,
+    .summary-picker-btn:hover { transform: rotate(-1deg) scale(1.02); }
+    .summary-picker-btn {
+      color: var(--marker-blue);
+      background: var(--sticky-blue);
+      transform: rotate(1deg);
+      font-size: 1.15rem;
+      padding: .15rem .85rem .3rem;
+    }
+    .lesson-picker.open .lesson-picker-btn,
+    .summary-picker.open .summary-picker-btn {
+      transform: rotate(0deg);
+      box-shadow: 4px 5px 14px rgba(0,0,0,.18);
+    }
+    .lesson-picker-chevron,
+    .summary-picker-chevron {
+      font-size: 1rem;
+      transition: transform .2s;
+      line-height: 1;
+    }
+    .lesson-picker.open .lesson-picker-chevron,
+    .summary-picker.open .summary-picker-chevron { transform: rotate(180deg); }
+    .lesson-picker-menu,
+    .summary-picker-menu {
+      position: absolute;
+      top: calc(100% + .5rem);
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      min-width: 260px;
+      list-style: none;
+      background: #fffef5;
+      border: 2px solid rgba(0,0,0,.12);
+      border-radius: 3px;
+      box-shadow: 4px 6px 18px rgba(0,0,0,.15);
+      padding: .35rem 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s, transform .2s, visibility .2s;
+    }
+    .lesson-picker.open .lesson-picker-menu,
+    .summary-picker.open .summary-picker-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) rotate(0deg);
+    }
+    .lesson-picker-menu li,
+    .summary-picker-menu li { margin: 0; }
+    .lesson-picker-menu a,
+    .lesson-picker-menu .lesson-soon,
+    .summary-picker-menu a,
+    .summary-picker-menu .picker-current {
+      display: block;
+      padding: .55rem 1rem;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.05rem;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .lesson-picker-menu a:hover,
+    .summary-picker-menu a:hover { background: rgba(207,232,255,.5); }
+    .lesson-picker-menu .current a,
+    .summary-picker-menu .picker-current {
+      background: rgba(207,232,255,.55);
+      color: var(--marker-blue);
+      font-weight: 700;
+      pointer-events: none;
+    }
+    .lesson-picker-menu .current a {
+      background: rgba(255,214,232,.5);
+      color: var(--marker-red);
+    }
+    .lesson-picker-menu .lesson-soon {
+      color: var(--muted);
+      cursor: not-allowed;
+      opacity: .75;
+    }
+    .lesson-picker-menu .lesson-soon span {
+      font-size: .8rem;
+      color: var(--marker-orange);
+      margin-left: .35rem;
+    }
+    .summary-picker .summary-picker-menu {
+      left: auto;
+      right: 0;
+      transform: rotate(-1deg);
+      min-width: 220px;
+    }
+    .summary-picker.open .summary-picker-menu {
+      transform: rotate(0deg);
+    }
+    .summary-picker-menu .picker-current {
+      display: block;
+      padding: .55rem 1rem;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.05rem;
     }
     h1 {
       font-family: 'Caveat', cursive;
@@ -270,6 +380,21 @@
       padding-bottom: .35rem;
     }
     h2 .icon { font-size: 1.3rem; }
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: .85rem;
+      border-bottom: 2px solid rgba(0,0,0,.12);
+      padding-bottom: .35rem;
+    }
+    .section-head h2 {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
     h3 {
       font-family: 'Caveat', cursive;
       font-size: 1.35rem;
@@ -718,69 +843,32 @@
     .doodle-1 { top: 8%; right: 5%; transform: rotate(15deg); }
     .doodle-2 { bottom: 12%; left: 3%; transform: rotate(-10deg); font-size: 2.5rem; }
 
-    /* Next lesson nav */
-    .lesson-nav-next {
-      position: absolute;
-      top: 7.5rem;
-      right: 1rem;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      gap: .35rem;
-      padding: .45rem .85rem .45rem .65rem;
-      background: rgba(255,255,255,.75);
-      border: 2px solid var(--marker-blue);
-      border-radius: 3px;
-      color: var(--marker-blue);
-      font-family: 'Caveat', cursive;
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 2px 3px 0 rgba(26,86,219,.2);
-      transform: rotate(1deg);
-      transition: transform .15s, box-shadow .15s, background .15s;
-    }
-    .lesson-nav-next:hover {
-      transform: rotate(0deg) translate(-2px, -2px);
-      box-shadow: 4px 5px 0 rgba(26,86,219,.25);
-      background: white;
-    }
-    .lesson-nav-next .arrow {
-      font-size: 1.5rem;
-      line-height: 1;
-      transition: transform .2s;
-    }
-    .lesson-nav-next:hover .arrow { transform: translateX(4px); }
-    .lesson-nav-next .nav-soon {
-      font-family: 'Patrick Hand', cursive;
-      font-size: .7rem;
-      font-weight: 400;
-      color: var(--muted);
-      display: block;
-      line-height: 1;
-      margin-top: 1px;
-    }
-
   </style>
 </head>
 <body>
 
 <div class="whiteboard">
   <div class="whiteboard-inner">
-    <a href="lesson-2.html" class="lesson-nav-next" title="Lesson 2 — coming soon">
-      <span>
-        Lesson 2
-        <span class="nav-soon">soon</span>
-      </span>
-      <span class="arrow" aria-hidden="true">→</span>
-    </a>
     <span class="board-doodle doodle-1">✏️</span>
     <span class="board-doodle doodle-2">🇵🇱</span>
 
 <div class="container">
 
   <header>
-    <div class="lesson-badge">📌 Lesson 1</div>
+    <div class="lesson-picker board-picker" id="lessonPicker">
+      <button type="button" class="lesson-picker-btn" id="lessonPickerBtn" aria-expanded="false" aria-haspopup="listbox">
+        📌 Lesson 1
+        <span class="lesson-picker-chevron" aria-hidden="true">▾</span>
+      </button>
+      <ul class="lesson-picker-menu" id="lessonPickerMenu" role="listbox">
+        <li class="current" role="option" aria-selected="true">
+          <a href="index.html">Lesson 1 — Compliments &amp; Basic Sentences</a>
+        </li>
+        <li role="option" aria-disabled="true">
+          <span class="lesson-soon">Lesson 2<span>coming soon</span></span>
+        </li>
+      </ul>
+    </div>
     <h1>Compliments &amp; Basic Sentences</h1>
     <p class="subtitle">Learn how to praise someone in Polish — Person + verb + description</p>
     <p class="board-date">Topic: Compliments &amp; Basic Sentence Building</p>
@@ -796,7 +884,23 @@
 
   <!-- LESSON SUMMARY -->
   <section id="summary">
-    <h2><span class="icon">📋</span> Lesson Summary</h2>
+    <div class="section-head">
+      <h2><span class="icon">📋</span> Lesson Summary</h2>
+      <div class="summary-picker board-picker" id="summaryPicker">
+        <button type="button" class="summary-picker-btn" aria-expanded="false" aria-haspopup="listbox">
+          Basic
+          <span class="summary-picker-chevron" aria-hidden="true">▾</span>
+        </button>
+        <ul class="summary-picker-menu" role="listbox">
+          <li class="picker-current" role="option" aria-selected="true">
+            <span class="picker-current">Basic — quick overview</span>
+          </li>
+          <li role="option">
+            <a href="lesson-1-theory.html">Full explanation →</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="summary-grid">
       <div class="summary-item">
         <span class="summary-num">1</span>
@@ -1042,11 +1146,142 @@
       </div>
     </div>
 
-    <!-- Flashcards -->
+    <!-- Exercise 11: Perfect — woman -->
     <div class="exercise" data-exercise="11">
       <div class="exercise-header">
-        <span class="exercise-num">Bonus — Flashcards</span>
+        <span class="exercise-num">Exercise 11 — Pick the correct form</span>
         <span class="exercise-score" id="score11"></span>
+      </div>
+      <p>You're speaking to a <strong>woman</strong>. "You are perfect." — which is correct?</p>
+      <div class="btn-row" id="ex11-options">
+        <button class="btn" data-correct="false" onclick="pickGender(this, 11)">Jesteś perfekcyjny.</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 11)">Jesteś perfekcyjna.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 11)">Jesteś perfekcyjne.</button>
+      </div>
+    </div>
+
+    <!-- Exercise 12: Phrase translation -->
+    <div class="exercise" data-exercise="12">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 12 — Translate the phrase</span>
+        <span class="exercise-score" id="score12"></span>
+      </div>
+      <p>What does <strong>"na całym świecie"</strong> mean?</p>
+      <div class="btn-row" id="ex12-options">
+        <button class="btn" data-correct="false" onclick="pickGender(this, 12)">In the universe</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 12)">In the whole world</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 12)">On the world</button>
+      </div>
+    </div>
+
+    <!-- Exercise 13: He is -->
+    <div class="exercise" data-exercise="13">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 13 — Fill in "to be"</span>
+        <span class="exercise-score" id="score13"></span>
+      </div>
+      <p class="fill-sentence">On <input type="text" id="ex13-input" placeholder="..."> wspaniały.</p>
+      <p class="muted">"He is amazing." — fill in the form of <em>być</em> for <em>on</em></p>
+      <button class="btn btn-check" onclick="checkFill(13, 'jest')">Check answer</button>
+    </div>
+
+    <!-- Exercise 14: We are -->
+    <div class="exercise" data-exercise="14">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 14 — Fill in "to be"</span>
+        <span class="exercise-score" id="score14"></span>
+      </div>
+      <p class="fill-sentence">My <input type="text" id="ex14-input" placeholder="..."> cudowni.</p>
+      <p class="muted">"We are wonderful." — fill in the form of <em>być</em> for <em>my</em></p>
+      <button class="btn btn-check" onclick="checkFill(14, 'jesteśmy')">Check answer</button>
+    </div>
+
+    <!-- Exercise 15: The most -->
+    <div class="exercise" data-exercise="15">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 15 — Vocabulary</span>
+        <span class="exercise-score" id="score15"></span>
+      </div>
+      <p class="fill-sentence">Jesteś <input type="text" id="ex15-input" placeholder="..."> cudowny.</p>
+      <p class="muted">"You are <strong>the most</strong> wonderful." (to a man)</p>
+      <button class="btn btn-check" onclick="checkFill(15, 'najbardziej')">Check answer</button>
+    </div>
+
+    <!-- Exercise 16: Match phrases -->
+    <div class="exercise" data-exercise="16">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 16 — Match the phrases</span>
+        <span class="exercise-score" id="score16"></span>
+      </div>
+      <p class="muted">Click English, then Polish.</p>
+      <div class="match-grid">
+        <div class="match-col" id="match3-left">
+          <div class="match-item" data-id="q1" data-pair="1">In the world</div>
+          <div class="match-item" data-id="q2" data-pair="2">The most</div>
+          <div class="match-item" data-id="q3" data-pair="3">In the whole world</div>
+          <div class="match-item" data-id="q4" data-pair="4">In the whole universe</div>
+        </div>
+        <div class="match-col" id="match3-right">
+          <div class="match-item" data-id="q5" data-pair="2">najbardziej</div>
+          <div class="match-item" data-id="q6" data-pair="4">w całym wszechświecie</div>
+          <div class="match-item" data-id="q7" data-pair="1">na świecie</div>
+          <div class="match-item" data-id="q8" data-pair="3">na całym świecie</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 17: Sentence builder woman -->
+    <div class="exercise" data-exercise="17">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 17 — Build the sentence</span>
+        <span class="exercise-score" id="score17"></span>
+      </div>
+      <p>Build: <strong>"You are wonderful."</strong> (to a woman)</p>
+      <p class="muted">Drag words — or tap a word, then tap a blank.</p>
+      <div class="word-bank" id="bank17">
+        <span class="word-chip" draggable="true" data-word="Jesteś" data-bank="17">Jesteś</span>
+        <span class="word-chip" draggable="true" data-word="cudowna." data-bank="17">cudowna.</span>
+        <span class="word-chip" draggable="true" data-word="cudowny." data-bank="17">cudowny.</span>
+        <span class="word-chip" draggable="true" data-word="wspaniała." data-bank="17">wspaniała.</span>
+      </div>
+      <p class="fill-sentence">
+        <span class="drop-zone" data-slot="0" data-ex="17" data-bank="17"></span>
+        <span class="drop-zone" data-slot="1" data-ex="17" data-bank="17"></span>
+      </p>
+      <button class="btn btn-check" onclick="checkBuilder(17, ['Jesteś','cudowna.'])">Check answer</button>
+      <button class="btn" onclick="resetBuilder(17)" style="margin-left:.5rem">Reset</button>
+    </div>
+
+    <!-- Exercise 18: They are -->
+    <div class="exercise" data-exercise="18">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 18 — Fill in "to be"</span>
+        <span class="exercise-score" id="score18"></span>
+      </div>
+      <p class="fill-sentence">Oni <input type="text" id="ex18-input" placeholder="..."> wspaniali.</p>
+      <p class="muted">"They are amazing." — form of <em>być</em> for <em>oni</em></p>
+      <button class="btn btn-check" onclick="checkFill(18, 'są')">Check answer</button>
+    </div>
+
+    <!-- Exercise 19: English → Polish -->
+    <div class="exercise" data-exercise="19">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 19 — Choose the translation</span>
+        <span class="exercise-score" id="score19"></span>
+      </div>
+      <p>How do you say <strong>"You are amazing."</strong> to a <strong>woman</strong>?</p>
+      <div class="btn-row" id="ex19-options">
+        <button class="btn" data-correct="false" onclick="pickGender(this, 19)">Jesteś wspaniały.</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 19)">Jesteś wspaniała.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 19)">Jesteś wspaniałe.</button>
+      </div>
+    </div>
+
+    <!-- Flashcards -->
+    <div class="exercise" data-exercise="20">
+      <div class="exercise-header">
+        <span class="exercise-num">Bonus — Flashcards</span>
+        <span class="exercise-score" id="score20"></span>
       </div>
       <div class="flashcard-deck">
         <div class="flashcard" id="flashcard" onclick="flipCard()">
@@ -1105,7 +1340,7 @@
 <script>
   // ─── State ───
   const completed = new Set();
-  const TOTAL_EXERCISES = 11;
+  const TOTAL_EXERCISES = 20;
 
   const vocabulary = [
     { pl: "cudowny / cudowna / cudowne", en: "wonderful", ko: "멋진 / 훌륭한" },
@@ -1304,6 +1539,7 @@
 
   setupMatch('match-left', 'match-right', 5, 4);
   setupMatch('match2-left', 'match2-right', 6, 4);
+  setupMatch('match3-left', 'match3-right', 16, 4);
 
   // ─── Sentence builder (drag & drop + tap) ───
   let selectedChip = null;
@@ -1434,14 +1670,46 @@
     fcKnown.add(fcIndex);
     toast(`Card marked! (${fcKnown.size}/${flashcards.length} known)`);
     if (fcKnown.size === flashcards.length) {
-      document.getElementById('score11').textContent = '✓ All cards reviewed!';
-      document.getElementById('score11').className = 'exercise-score correct';
-      markComplete(11);
+      document.getElementById('score20').textContent = '✓ All cards reviewed!';
+      document.getElementById('score20').className = 'exercise-score correct';
+      markComplete(20);
     }
     nextCard();
   }
 
   updateCard();
+
+  // ─── Dropdown pickers ───
+  document.querySelectorAll('.board-picker').forEach(picker => {
+    const btn = picker.querySelector('button');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      document.querySelectorAll('.board-picker.open').forEach(p => {
+        if (p !== picker) {
+          p.classList.remove('open');
+          p.querySelector('button').setAttribute('aria-expanded', 'false');
+        }
+      });
+      const open = picker.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.board-picker.open').forEach(picker => {
+      picker.classList.remove('open');
+      picker.querySelector('button').setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.board-picker.open').forEach(picker => {
+        picker.classList.remove('open');
+        picker.querySelector('button').setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
 </script>
 </body>
 </html>
