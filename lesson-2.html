@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 1 — Compliments & Basic Sentences</title>
+  <title>Lesson 2 — Feelings, się &amp; Intensifiers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&family=Kalam:wght@300;400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -520,6 +520,8 @@
       margin: 1rem 0;
     }
     @media (max-width: 500px) { .gender-rule { grid-template-columns: 1fr; } }
+    .gender-rule-4 { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 700px) { .gender-rule-4 { grid-template-columns: repeat(4, 1fr); } }
     .gender-chip {
       text-align: center;
       padding: .7rem .5rem;
@@ -539,6 +541,35 @@
       margin-bottom: .1rem;
     }
 
+    /* Explanation box */
+    .explain-box {
+      background: rgba(255,255,255,.55);
+      border: 2px dashed var(--marker-purple);
+      border-radius: 3px;
+      padding: 1rem 1.15rem;
+      margin: 1rem 0;
+      font-size: .98rem;
+    }
+    .explain-box h4 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: var(--marker-purple);
+      margin-bottom: .5rem;
+    }
+    .explain-box ul {
+      margin: .5rem 0 .5rem 1.25rem;
+    }
+    .explain-box li { margin-bottom: .35rem; }
+    .explain-box .sie-examples { margin: .4rem 0 .75rem 1.25rem; }
+    .explain-box .sie-examples em { color: var(--marker-blue); }
+    .explain-box .sie-rules { margin: .5rem 0 .75rem 1.35rem; }
+    .explain-box h4 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.15rem;
+      color: var(--marker-purple);
+      margin: .85rem 0 .35rem;
+    }
+    .explain-box h4:first-of-type { margin-top: .25rem; }
     .lesson-block-title {
       font-family: 'Caveat', cursive;
       font-size: 1.45rem;
@@ -549,13 +580,43 @@
     }
     .lesson-block-title:first-of-type { margin-top: .75rem; }
     .lesson-lead { margin: 0 0 .75rem; font-size: .95rem; }
-    .topic-list {
-      margin: .5rem 0 .25rem 1.25rem;
-      font-family: 'Patrick Hand', cursive;
-      font-size: .98rem;
+    .bonus-fact {
+      background: rgba(255,249,176,.65);
+      border: 2px dashed var(--marker-orange);
+      border-radius: 3px;
+      padding: .75rem 1rem;
+      margin: .75rem 0 1rem;
+      font-size: .95rem;
     }
-    .topic-list li { margin-bottom: .35rem; }
-    .topic-list em { color: var(--marker-blue); }
+    .bonus-fact strong {
+      font-family: 'Caveat', cursive;
+      font-size: 1.15rem;
+      color: var(--marker-orange);
+      display: block;
+      margin-bottom: .35rem;
+    }
+    .bonus-fact em { color: var(--marker-blue); }
+    .explain-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      margin: .75rem 0;
+    }
+    @media (max-width: 500px) { .explain-compare { grid-template-columns: 1fr; } }
+    .explain-compare div {
+      background: rgba(255,255,255,.5);
+      padding: .6rem .75rem;
+      border-radius: 2px;
+      font-family: 'Patrick Hand', cursive;
+      font-size: .95rem;
+    }
+    .explain-compare > div > strong:first-child {
+      display: block;
+      font-family: 'Caveat', cursive;
+      font-size: 1.05rem;
+      color: var(--marker-blue);
+      margin-bottom: .2rem;
+    }
 
     /* Exercises — mini whiteboard cards */
     .exercise {
@@ -902,14 +963,14 @@
   <header>
     <div class="lesson-picker board-picker" id="lessonPicker">
       <button type="button" class="lesson-picker-btn" id="lessonPickerBtn" aria-expanded="false" aria-haspopup="listbox">
-        📌 Lesson 1
+        📌 Lesson 2
         <span class="lesson-picker-chevron" aria-hidden="true">▾</span>
       </button>
       <ul class="lesson-picker-menu" id="lessonPickerMenu" role="listbox">
-        <li class="current" role="option" aria-selected="true">
+        <li role="option">
           <a href="index.html">Lesson 1 — Compliments &amp; Basic Sentences</a>
         </li>
-        <li role="option">
+        <li class="current" role="option" aria-selected="true">
           <a href="lesson-2.html">Lesson 2 — Feelings, się &amp; Intensifiers</a>
         </li>
         <li role="option">
@@ -917,9 +978,9 @@
         </li>
       </ul>
     </div>
-    <h1>Compliments &amp; Basic Sentences</h1>
-    <p class="subtitle">Learn how to praise someone in Polish — Person + verb + description</p>
-    <p class="board-date">Topic: Compliments &amp; Basic Sentence Building</p>
+    <h1>Feelings, <em>się</em> &amp; Intensifiers</h1>
+    <p class="subtitle">Happy feelings, reflexive <em>się</em>, <em>taka</em>, <em>zbyt</em> &amp; superlatives</p>
+    <p class="board-date">Topic: Emotions, Reflexive Verbs &amp; “Too / So”</p>
   </header>
 
   <div class="progress-wrap" id="progressWrap" aria-live="polite" hidden>
@@ -943,7 +1004,7 @@
             <span class="picker-current">Basic — quick overview</span>
           </li>
           <li role="option">
-            <a href="lesson-1-theory.html">Full explanation →</a>
+            <a href="lesson-2-theory.html">Full explanation →</a>
           </li>
         </ul>
       </div>
@@ -951,61 +1012,116 @@
     <div class="summary-grid">
       <div class="summary-item">
         <span class="summary-num">1</span>
-        <div><strong>Pattern:</strong> person + verb + description — <em>Jesteś cudowna.</em></div>
+        <div><strong>Happy — two ways:</strong> <em>Jestem</em> + adjective <em>or</em> verb + <em>się</em>.</div>
       </div>
       <div class="summary-item">
         <span class="summary-num">2</span>
-        <div><strong>Gender:</strong> adjective endings <em>-y</em> / <em>-a</em> / <em>-e</em>.</div>
+        <div><strong><em>się</em>:</strong> myself · each other · part of verb · general “it happens”.</div>
       </div>
       <div class="summary-item">
         <span class="summary-num">3</span>
-        <div><strong><em>Jesteś</em>:</strong> you are + compliment — match the person's gender.</div>
+        <div><strong><em>tak</em>:</strong> yes alone · so / like that in a sentence · <em>taka</em> · <em>tak bardzo</em>.</div>
       </div>
       <div class="summary-item">
         <span class="summary-num">4</span>
-        <div><strong>Superlatives:</strong> <em>najbardziej</em> + adjective — the most wonderful.</div>
+        <div><strong>Superlatives:</strong> <em>naj-</em> / <em>najbardziej</em> — the most happy.</div>
       </div>
       <div class="summary-item">
         <span class="summary-num">5</span>
-        <div><strong>Phrases:</strong> <em>na świecie</em> · <em>w całym wszechświecie</em>.</div>
+        <div><strong>Too:</strong> <em>zbyt</em> + adjective · <em>zbyt gorąco</em> / <em>za zimno</em>.</div>
       </div>
     </div>
 
-    <h3 class="lesson-block-title">1 · Core sentence pattern</h3>
-    <p class="lesson-lead muted">Praise someone with a simple three-part sentence. You can drop <em>Ty</em> — <em>Jesteś cudowna</em> is enough.</p>
-    <div class="pattern-box">
-      <div class="pattern-formula">
-        <span>Person</span><span class="plus">+</span><span>verb</span><span class="plus">+</span><span>description</span>
+    <h3 class="lesson-block-title">1 · <em>Jestem szczęśliwa</em> vs <em>Cieszę się</em></h3>
+    <p class="lesson-lead muted">Both can mean “I'm happy” — different grammar.</p>
+    <div class="explain-compare">
+      <div>
+        <em>Jestem szczęśliwy. / Jestem szczęśliwa.</em><br>
+        <span class="muted"><em>Jestem</em> + adjective</span>
+      </div>
+      <div>
+        <em>Cieszę się.</em><br>
+        <span class="muted">verb + <em>się</em> (emotion verb)</span>
       </div>
     </div>
-    <p class="muted" style="margin-top:.5rem"><em>Ty jesteś cudowna.</em> = You are wonderful. · <a href="lesson-1-theory.html#pattern">Full explanation →</a></p>
+    <div class="bonus-fact">
+      <strong>🎀 Bonus fun fact</strong>
+      <em>Czeszę się</em> = I'm brushing my hair — sounds like <em>Cieszę się</em>, but it's <em>czesać się</em>, not <em>cieszyć się</em>.
+    </div>
 
-    <h3 class="lesson-block-title">2 · Gender endings</h3>
-    <p class="lesson-lead muted">The adjective ending changes — same meaning, different form.</p>
+    <h3 class="lesson-block-title" id="sie">2 · The particle <em>się</em></h3>
+    <p class="lesson-lead muted">A small word with verbs — no perfect English translation. The form <strong>się</strong> never changes.</p>
+    <div class="gender-rule gender-rule-4">
+      <div class="gender-chip m"><strong>① myself</strong><br><em>Myję się</em></div>
+      <div class="gender-chip f"><strong>② each other</strong><br><em>Kochamy się</em></div>
+      <div class="gender-chip n"><strong>③ part of verb</strong><br><em>bać się</em></div>
+      <div class="gender-chip m"><strong>④ general</strong><br><em>mówi się</em></div>
+    </div>
+    <div class="explain-box">
+      <h4>① Myself / yourself</h4>
+      <ul class="sie-examples">
+        <li><em>Myję się.</em> = I wash myself.</li>
+        <li><em>Ubieram się.</em> = I get dressed.</li>
+        <li><em>Ona uczy się polskiego.</em> = She is learning Polish.</li>
+      </ul>
+
+      <h4>② Each other</h4>
+      <ul class="sie-examples">
+        <li><em>Kochamy się.</em> = We love each other.</li>
+        <li><em>Całujemy się.</em> = We kiss each other.</li>
+      </ul>
+
+      <h4>③ Part of the verb — learn together</h4>
+      <ul class="sie-examples">
+        <li><em>bać się</em> = to be afraid · <em>śmiać się</em> = to laugh · <em>uczyć się</em> = to learn · <em>czuć się</em> = to feel · <em>cieszyć się</em> = to be glad</li>
+        <li><em>Boję się.</em> = I am afraid. · <em>Czuję się dobrze.</em> = I feel good.</li>
+      </ul>
+
+      <h4>④ General — “it happens” / “people do this”</h4>
+      <ul class="sie-examples">
+        <li><em>Drzwi otwierają się.</em> = The door opens.</li>
+        <li><em>Tutaj mówi się po polsku.</em> = People speak Polish here.</li>
+      </ul>
+
+      <p class="muted" style="margin-bottom:0"><strong>Tip:</strong> Learn verbs with <em>się</em> as one unit — <em>uczyć się</em>, <em>bać się</em>, <em>zakochać się</em>. <a href="lesson-2-theory.html#sie">Full guide →</a></p>
+    </div>
+
+    <h3 class="lesson-block-title">3 · <em>tak</em> — not only “yes”</h3>
+    <p class="lesson-lead muted">Polish <em>tak</em> does two jobs — context tells you which.</p>
     <div class="gender-rule">
-      <div class="gender-chip m"><strong>-y</strong> masculine<br>cudowny</div>
-      <div class="gender-chip f"><strong>-a</strong> feminine<br>cudowna</div>
-      <div class="gender-chip n"><strong>-e</strong> neuter<br>cudowne</div>
+      <div class="gender-chip m"><strong>tak</strong><br>yes · so / like that</div>
+      <div class="gender-chip f"><strong>taka</strong><br>so / such (fem.)</div>
+      <div class="gender-chip n"><strong>tak bardzo</strong><br>so much</div>
+    </div>
+    <div class="explain-box">
+      <div class="explain-compare">
+        <div>
+          <strong>Tak!</strong> = yes<br>
+          <em>Czy jesteś szczęśliwa?</em> → <em>Tak!</em>
+        </div>
+        <div>
+          <strong>tak</strong> = so / like that<br>
+          <em>Mówisz <strong>tak</strong> cicho.</em> — You speak <strong>so</strong> quietly.
+        </div>
+      </div>
+      <ul class="sie-examples" style="margin-top:.75rem">
+        <li><em>taki / taka / takie</em> — gender pattern like Lesson 1</li>
+        <li><em>Jestem taka szczęśliwa</em> = I am so happy</li>
+        <li><em>Jestem tak bardzo szczęśliwa</em> = I am so very happy</li>
+        <li><em>Właśnie tak</em> = exactly like this</li>
+      </ul>
     </div>
 
-    <h3 class="lesson-block-title">3 · Compliments with <em>jesteś</em></h3>
-    <ul class="topic-list">
-      <li><em>Jesteś cudowny.</em> / <em>Jesteś cudowna.</em> — wonderful</li>
-      <li><em>Jesteś wspaniały.</em> / <em>Jesteś wspaniała.</em> — amazing</li>
-      <li><em>Jesteś perfekcyjny.</em> / <em>Jesteś perfekcyjna.</em> — perfect</li>
-    </ul>
-
-    <h3 class="lesson-block-title">4 · The most — <em>najbardziej</em></h3>
-    <ul class="topic-list">
-      <li><em>Jesteś najbardziej cudowny.</em> / <em>Jesteś najbardziej cudowna.</em></li>
-      <li><em>Jesteś najbardziej wspaniały na świecie.</em> / <em>… wspaniała na świecie.</em></li>
-    </ul>
-
-    <h3 class="lesson-block-title">5 · Useful phrases</h3>
-    <ul class="topic-list">
-      <li><em>na świecie</em> = in the world</li>
-      <li><em>w całym wszechświecie</em> = in the whole universe</li>
-      <li><em>Jesteś najbardziej cudowny w całym wszechświecie.</em></li>
+    <h3 class="lesson-block-title">4 · So happy &amp; too</h3>
+    <div class="gender-rule gender-rule-4">
+      <div class="gender-chip f"><strong>taka</strong><br>so happy</div>
+      <div class="gender-chip n"><strong>tak bardzo</strong><br>so much</div>
+      <div class="gender-chip m"><strong>naj-</strong><br>the most</div>
+      <div class="gender-chip f"><strong>zbyt</strong><br>too</div>
+    </div>
+    <ul class="sie-examples" style="margin:.5rem 0 0 1.25rem">
+      <li><em>Jestem taka szczęśliwa.</em> · <em>Najszczęśliwsza.</em> · <em>Jestem najbardziej szczęśliwa na świecie.</em></li>
+      <li><em>Jesteś zbyt idealna.</em> · <em>Zbyt gorąco.</em> · <em>Za zimno.</em> · <em>Dziś pogoda jest okropna.</em></li>
     </ul>
   </section>
 
@@ -1016,38 +1132,62 @@
 
     <div class="example-pair">
       <div class="example-card" onclick="reveal(this)">
-        <div class="example-en">You are wonderful.</div>
-        <div class="example-pl">Jesteś cudowny. / Jesteś cudowna.</div>
+        <div class="example-en">I am happy.</div>
+        <div class="example-pl">Jestem szczęśliwy. / Jestem szczęśliwa.</div>
         <div class="example-hint">man / woman</div>
       </div>
       <div class="example-card" onclick="reveal(this)">
-        <div class="example-en">You are amazing.</div>
-        <div class="example-pl">Jesteś wspaniały. / Jesteś wspaniała.</div>
-        <div class="example-hint">man / woman</div>
+        <div class="example-en">I'm glad / happy.</div>
+        <div class="example-pl">Cieszę się.</div>
+        <div class="example-hint">reflexive — verb + się</div>
       </div>
     </div>
     <div class="example-pair">
       <div class="example-card" onclick="reveal(this)">
-        <div class="example-en">You are perfect.</div>
-        <div class="example-pl">Jesteś perfekcyjny. / Jesteś perfekcyjna.</div>
-        <div class="example-hint">man / woman</div>
+        <div class="example-en">I am so happy.</div>
+        <div class="example-pl">Jestem taka szczęśliwa.</div>
+        <div class="example-hint">taka = so / exactly (fem.)</div>
       </div>
       <div class="example-card" onclick="reveal(this)">
-        <div class="example-en">You are the most wonderful.</div>
-        <div class="example-pl">Jesteś najbardziej cudowny. / Jesteś najbardziej cudowna.</div>
-        <div class="example-hint">man / woman</div>
+        <div class="example-en">I am so very happy.</div>
+        <div class="example-pl">Jestem tak bardzo szczęśliwa.</div>
+        <div class="example-hint">tak bardzo = so much</div>
       </div>
     </div>
     <div class="example-pair">
       <div class="example-card" onclick="reveal(this)">
-        <div class="example-en">You are the most amazing in the world.</div>
-        <div class="example-pl">Jesteś najbardziej wspaniały na świecie.</div>
-        <div class="example-hint">man — add -a for woman</div>
+        <div class="example-en">The happiest (fem.)</div>
+        <div class="example-pl">Najszczęśliwsza.</div>
+        <div class="example-hint">naj- + adjective</div>
       </div>
       <div class="example-card" onclick="reveal(this)">
-        <div class="example-en">You are the most wonderful in the whole universe.</div>
-        <div class="example-pl">Jesteś najbardziej cudowny w całym wszechświecie.</div>
-        <div class="example-hint">man — add -a for woman</div>
+        <div class="example-en">I am the most happy in the world.</div>
+        <div class="example-pl">Jestem najbardziej szczęśliwa na świecie.</div>
+        <div class="example-hint">woman — add -y for man</div>
+      </div>
+    </div>
+    <div class="example-pair">
+      <div class="example-card" onclick="reveal(this)">
+        <div class="example-en">You are too perfect.</div>
+        <div class="example-pl">Jesteś zbyt idealna.</div>
+        <div class="example-hint">zbyt = too</div>
+      </div>
+      <div class="example-card" onclick="reveal(this)">
+        <div class="example-en">Today's weather is awful.</div>
+        <div class="example-pl">Dziś pogoda jest okropna.</div>
+        <div class="example-hint">bonus phrase from class</div>
+      </div>
+    </div>
+    <div class="example-pair">
+      <div class="example-card" onclick="reveal(this)">
+        <div class="example-en">Too hot / Too cold</div>
+        <div class="example-pl">Zbyt gorąco. / Za zimno.</div>
+        <div class="example-hint">zbyt / za + adverb</div>
+      </div>
+      <div class="example-card" onclick="reveal(this)">
+        <div class="example-en">I am so very happy.</div>
+        <div class="example-pl">Jestem tak bardzo szczęśliwa.</div>
+        <div class="example-hint">tak bardzo</div>
       </div>
     </div>
     <p class="tap-hint">👆 Tap cards to practice recall</p>
@@ -1058,293 +1198,296 @@
     <h2><span class="icon">✏️</span> Interactive Exercises</h2>
     <p class="muted">Complete the exercises below.</p>
 
-    <!-- Exercise 1: Gender picker -->
+    <!-- Exercise 1 -->
     <div class="exercise" data-exercise="1">
       <div class="exercise-header">
         <span class="exercise-num">Exercise 1 — Pick the correct form</span>
         <span class="exercise-score" id="score1"></span>
       </div>
-      <p>You're speaking to a <strong>woman</strong>. Which is correct?</p>
+      <p>A <strong>woman</strong> says: "I am happy." Which is correct?</p>
       <div class="btn-row" id="ex1-options">
-        <button class="btn" data-correct="false" onclick="pickGender(this, 1)">Jesteś cudowny.</button>
-        <button class="btn" data-correct="true" onclick="pickGender(this, 1)">Jesteś cudowna.</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 1)">Jesteś cudowne.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 1)">Jestem szczęśliwy.</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 1)">Jestem szczęśliwa.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 1)">Jestem szczęśliwe.</button>
       </div>
     </div>
 
-    <!-- Exercise 2: Gender picker man -->
+    <!-- Exercise 2 -->
     <div class="exercise" data-exercise="2">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 2 — Pick the correct form</span>
+        <span class="exercise-num">Exercise 2 — Reflexive verb</span>
         <span class="exercise-score" id="score2"></span>
       </div>
-      <p>You're speaking to a <strong>man</strong>. Which is correct?</p>
+      <p>How do you say <strong>"I'm glad / happy"</strong> using <em>się</em>?</p>
       <div class="btn-row" id="ex2-options">
-        <button class="btn" data-correct="false" onclick="pickGender(this, 2)">Jesteś wspaniała.</button>
-        <button class="btn" data-correct="true" onclick="pickGender(this, 2)">Jesteś wspaniały.</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 2)">Jesteś wspaniałe.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 2)">Jestem się.</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 2)">Cieszę się.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 2)">Cieszę.</button>
       </div>
     </div>
 
-    <!-- Exercise 3: Fill in the blank -->
+    <!-- Exercise 3 -->
     <div class="exercise" data-exercise="3">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 3 — Fill in the blank</span>
+        <span class="exercise-num">Exercise 3 — Fill in się</span>
         <span class="exercise-score" id="score3"></span>
       </div>
-      <p class="fill-sentence">Ty <input type="text" id="ex3-input" placeholder="..."> cudowna.</p>
-      <p class="muted">Hint: "You are" in Polish</p>
-      <button class="btn btn-check" onclick="checkFill(3, 'jesteś')">Check answer</button>
+      <p class="fill-sentence">Cieszę <input type="text" id="ex3-input" placeholder="...">.</p>
+      <p class="muted">"I'm glad." — add the reflexive particle</p>
+      <button class="btn btn-check" onclick="checkFill(3, 'się')">Check answer</button>
     </div>
 
-    <!-- Exercise 4: Fill in adjective -->
+    <!-- Exercise 4 -->
     <div class="exercise" data-exercise="4">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 4 — Fill in the adjective</span>
+        <span class="exercise-num">Exercise 4 — Fill in taka</span>
         <span class="exercise-score" id="score4"></span>
       </div>
-      <p class="fill-sentence">Jesteś najbardziej <input type="text" id="ex4-input" placeholder="..."> na świecie.</p>
-      <p class="muted">"amazing" — feminine form, speaking to a woman</p>
-      <button class="btn btn-check" onclick="checkFill(4, 'wspaniała')">Check answer</button>
+      <p class="fill-sentence">Jestem <input type="text" id="ex4-input" placeholder="..."> szczęśliwa.</p>
+      <p class="muted">"I am <strong>so</strong> happy." (woman speaking)</p>
+      <button class="btn btn-check" onclick="checkFill(4, 'taka')">Check answer</button>
     </div>
 
-    <!-- Exercise 5: Pronoun match -->
+    <!-- Exercise 5 -->
     <div class="exercise" data-exercise="5">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 5 — Match pronouns</span>
+        <span class="exercise-num">Exercise 5 — Match the sentences</span>
         <span class="exercise-score" id="score5"></span>
       </div>
-      <p class="muted">Click an English word, then its Polish match.</p>
+      <p class="muted">Click English, then Polish.</p>
       <div class="match-grid">
         <div class="match-col" id="match-left">
-          <div class="match-item" data-id="a" data-pair="1">I</div>
-          <div class="match-item" data-id="b" data-pair="2">You (singular)</div>
-          <div class="match-item" data-id="c" data-pair="3">She</div>
-          <div class="match-item" data-id="d" data-pair="4">We</div>
+          <div class="match-item" data-id="a" data-pair="1">I'm glad.</div>
+          <div class="match-item" data-id="b" data-pair="2">I am so happy.</div>
+          <div class="match-item" data-id="c" data-pair="3">You are too perfect.</div>
+          <div class="match-item" data-id="d" data-pair="4">Too hot</div>
         </div>
         <div class="match-col" id="match-right">
-          <div class="match-item" data-id="e" data-pair="3">ona</div>
-          <div class="match-item" data-id="f" data-pair="1">ja</div>
-          <div class="match-item" data-id="g" data-pair="4">my</div>
-          <div class="match-item" data-id="h" data-pair="2">ty</div>
+          <div class="match-item" data-id="e" data-pair="3">Jesteś zbyt idealna.</div>
+          <div class="match-item" data-id="f" data-pair="1">Cieszę się.</div>
+          <div class="match-item" data-id="g" data-pair="4">Zbyt gorąco.</div>
+          <div class="match-item" data-id="h" data-pair="2">Jestem taka szczęśliwa.</div>
         </div>
       </div>
     </div>
 
-    <!-- Exercise 6: "To be" conjugation -->
+    <!-- Exercise 6 -->
     <div class="exercise" data-exercise="6">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 6 — Conjugate "to be"</span>
+        <span class="exercise-num">Exercise 6 — What is się?</span>
         <span class="exercise-score" id="score6"></span>
       </div>
-      <p>Match the subject with the correct form of <em>być</em> (to be):</p>
-      <div class="match-grid">
-        <div class="match-col" id="match2-left">
-          <div class="match-item" data-id="i" data-pair="1">On (he)</div>
-          <div class="match-item" data-id="j" data-pair="2">My (we)</div>
-          <div class="match-item" data-id="k" data-pair="3">Oni (they, m.)</div>
-          <div class="match-item" data-id="l" data-pair="4">Ja (I)</div>
-        </div>
-        <div class="match-col" id="match2-right">
-          <div class="match-item" data-id="m" data-pair="2">jesteśmy</div>
-          <div class="match-item" data-id="n" data-pair="4">jestem</div>
-          <div class="match-item" data-id="o" data-pair="1">jest</div>
-          <div class="match-item" data-id="p" data-pair="3">są</div>
-        </div>
+      <p>What does the particle <strong>się</strong> do?</p>
+      <div class="btn-row" id="ex6-options">
+        <button class="btn" data-correct="false" onclick="pickGender(this, 6)">It means "yes"</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 6)">It makes a verb reflexive</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 6)">It means "the most"</button>
       </div>
     </div>
 
-    <!-- Exercise 7: Sentence builder -->
+    <!-- Exercise 7 -->
     <div class="exercise" data-exercise="7">
       <div class="exercise-header">
         <span class="exercise-num">Exercise 7 — Build the sentence</span>
         <span class="exercise-score" id="score7"></span>
       </div>
-      <p>Build the sentence: <strong>"You are perfect."</strong> (to a man)</p>
-      <p class="muted">Drag words into the blanks — or tap a word, then tap a blank.</p>
+      <p>Build: <strong>"I'm glad."</strong></p>
+      <p class="muted">Drag words — or tap a word, then tap a blank.</p>
       <div class="word-bank" id="bank7">
-        <span class="word-chip" draggable="true" data-word="Jesteś" data-bank="7">Jesteś</span>
-        <span class="word-chip" draggable="true" data-word="perfekcyjny." data-bank="7">perfekcyjny.</span>
-        <span class="word-chip" draggable="true" data-word="cudowna." data-bank="7">cudowna.</span>
-        <span class="word-chip" draggable="true" data-word="perfekcyjna." data-bank="7">perfekcyjna.</span>
+        <span class="word-chip" draggable="true" data-word="Cieszę" data-bank="7">Cieszę</span>
+        <span class="word-chip" draggable="true" data-word="się." data-bank="7">się.</span>
+        <span class="word-chip" draggable="true" data-word="Jestem" data-bank="7">Jestem</span>
+        <span class="word-chip" draggable="true" data-word="szczęśliwa." data-bank="7">szczęśliwa.</span>
       </div>
       <p class="fill-sentence">
         <span class="drop-zone" data-slot="0" data-ex="7" data-bank="7"></span>
         <span class="drop-zone" data-slot="1" data-ex="7" data-bank="7"></span>
       </p>
-      <button class="btn btn-check" onclick="checkBuilder(7, ['Jesteś','perfekcyjny.'])">Check answer</button>
+      <button class="btn btn-check" onclick="checkBuilder(7, ['Cieszę','się.'])">Check answer</button>
       <button class="btn" onclick="resetBuilder(7)" style="margin-left:.5rem">Reset</button>
     </div>
 
-    <!-- Exercise 8: Phrase translation -->
+    <!-- Exercise 8 -->
     <div class="exercise" data-exercise="8">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 8 — Translate the phrase</span>
+        <span class="exercise-num">Exercise 8 — What does zbyt mean?</span>
         <span class="exercise-score" id="score8"></span>
       </div>
-      <p>What does <strong>"w całym wszechświecie"</strong> mean?</p>
+      <p>What does <strong>zbyt</strong> mean in <em>Jesteś zbyt idealna</em>?</p>
       <div class="btn-row" id="ex8-options">
-        <button class="btn" data-correct="false" onclick="pickGender(this, 8)">In the world</button>
-        <button class="btn" data-correct="true" onclick="pickGender(this, 8)">In the whole universe</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 8)">The most</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 8)">Very</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 8)">Too</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 8)">Yes</button>
       </div>
     </div>
 
-    <!-- Exercise 9: Multiple fill -->
+    <!-- Exercise 9 -->
     <div class="exercise" data-exercise="9">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 9 — Complete the superlative</span>
+        <span class="exercise-num">Exercise 9 — Complete the sentence</span>
         <span class="exercise-score" id="score9"></span>
       </div>
-      <p class="fill-sentence">Jesteś <input type="text" id="ex9a" placeholder="..." style="min-width:100px"> <input type="text" id="ex9b" placeholder="..." style="min-width:110px"> w całym wszechświecie.</p>
-      <p class="muted">"the most wonderful" — feminine (to a woman)</p>
+      <p class="fill-sentence">Jestem <input type="text" id="ex9a" placeholder="..." style="min-width:100px"> <input type="text" id="ex9b" placeholder="..." style="min-width:110px"> na świecie.</p>
+      <p class="muted">"I am the most happy in the world." (woman)</p>
       <button class="btn btn-check" onclick="checkSuperlative()">Check answer</button>
     </div>
 
-    <!-- Exercise 10: Quick quiz -->
+    <!-- Exercise 10 -->
     <div class="exercise" data-exercise="10">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 10 — Quick quiz</span>
+        <span class="exercise-num">Exercise 10 — tak vs taka</span>
         <span class="exercise-score" id="score10"></span>
       </div>
-      <p>Which ending is used for feminine adjectives?</p>
+      <p><strong>tak</strong> alone usually means "yes". What does <strong>taka</strong> mean before an adjective?</p>
+      <p class="muted" style="margin-top:-.35rem">Hint: it's the feminine form of <em>taki</em> — “so / such”</p>
       <div class="btn-row" id="ex10-options">
-        <button class="btn" data-correct="false" onclick="pickGender(this, 10)">-y</button>
-        <button class="btn" data-correct="true" onclick="pickGender(this, 10)">-a</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 10)">-e</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 10)">-i</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 10)">No</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 10)">So / exactly (fem.)</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 10)">Too</button>
       </div>
     </div>
 
-    <!-- Exercise 11: Perfect — woman -->
+    <!-- Exercise 11 -->
     <div class="exercise" data-exercise="11">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 11 — Pick the correct form</span>
+        <span class="exercise-num">Exercise 11 — Too perfect</span>
         <span class="exercise-score" id="score11"></span>
       </div>
-      <p>You're speaking to a <strong>woman</strong>. "You are perfect." — which is correct?</p>
+      <p>To a <strong>woman</strong>: "You are too perfect." — pick the correct sentence.</p>
       <div class="btn-row" id="ex11-options">
-        <button class="btn" data-correct="false" onclick="pickGender(this, 11)">Jesteś perfekcyjny.</button>
-        <button class="btn" data-correct="true" onclick="pickGender(this, 11)">Jesteś perfekcyjna.</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 11)">Jesteś perfekcyjne.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 11)">Jesteś zbyt idealny.</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 11)">Jesteś zbyt idealna.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 11)">Jesteś idealna zbyt.</button>
       </div>
     </div>
 
-    <!-- Exercise 12: Phrase translation -->
+    <!-- Exercise 12 -->
     <div class="exercise" data-exercise="12">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 12 — Translate the phrase</span>
+        <span class="exercise-num">Exercise 12 — Match intensifiers</span>
         <span class="exercise-score" id="score12"></span>
-      </div>
-      <p>What does <strong>"na całym świecie"</strong> mean?</p>
-      <div class="btn-row" id="ex12-options">
-        <button class="btn" data-correct="false" onclick="pickGender(this, 12)">In the universe</button>
-        <button class="btn" data-correct="true" onclick="pickGender(this, 12)">In the whole world</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 12)">On the world</button>
-      </div>
-    </div>
-
-    <!-- Exercise 13: He is -->
-    <div class="exercise" data-exercise="13">
-      <div class="exercise-header">
-        <span class="exercise-num">Exercise 13 — Fill in "to be"</span>
-        <span class="exercise-score" id="score13"></span>
-      </div>
-      <p class="fill-sentence">On <input type="text" id="ex13-input" placeholder="..."> wspaniały.</p>
-      <p class="muted">"He is amazing." — fill in the form of <em>być</em> for <em>on</em></p>
-      <button class="btn btn-check" onclick="checkFill(13, 'jest')">Check answer</button>
-    </div>
-
-    <!-- Exercise 14: We are -->
-    <div class="exercise" data-exercise="14">
-      <div class="exercise-header">
-        <span class="exercise-num">Exercise 14 — Fill in "to be"</span>
-        <span class="exercise-score" id="score14"></span>
-      </div>
-      <p class="fill-sentence">My <input type="text" id="ex14-input" placeholder="..."> cudowni.</p>
-      <p class="muted">"We are wonderful." — fill in the form of <em>być</em> for <em>my</em></p>
-      <button class="btn btn-check" onclick="checkFill(14, 'jesteśmy')">Check answer</button>
-    </div>
-
-    <!-- Exercise 15: The most -->
-    <div class="exercise" data-exercise="15">
-      <div class="exercise-header">
-        <span class="exercise-num">Exercise 15 — Vocabulary</span>
-        <span class="exercise-score" id="score15"></span>
-      </div>
-      <p class="fill-sentence">Jesteś <input type="text" id="ex15-input" placeholder="..."> cudowny.</p>
-      <p class="muted">"You are <strong>the most</strong> wonderful." (to a man)</p>
-      <button class="btn btn-check" onclick="checkFill(15, 'najbardziej')">Check answer</button>
-    </div>
-
-    <!-- Exercise 16: Match phrases -->
-    <div class="exercise" data-exercise="16">
-      <div class="exercise-header">
-        <span class="exercise-num">Exercise 16 — Match the phrases</span>
-        <span class="exercise-score" id="score16"></span>
       </div>
       <p class="muted">Click English, then Polish.</p>
       <div class="match-grid">
-        <div class="match-col" id="match3-left">
-          <div class="match-item" data-id="q1" data-pair="1">In the world</div>
-          <div class="match-item" data-id="q2" data-pair="2">The most</div>
-          <div class="match-item" data-id="q3" data-pair="3">In the whole world</div>
-          <div class="match-item" data-id="q4" data-pair="4">In the whole universe</div>
+        <div class="match-col" id="match2-left">
+          <div class="match-item" data-id="i" data-pair="1">so much</div>
+          <div class="match-item" data-id="j" data-pair="2">too</div>
+          <div class="match-item" data-id="k" data-pair="3">like this / exactly</div>
+          <div class="match-item" data-id="l" data-pair="4">the happiest (fem.)</div>
         </div>
-        <div class="match-col" id="match3-right">
-          <div class="match-item" data-id="q5" data-pair="2">najbardziej</div>
-          <div class="match-item" data-id="q6" data-pair="4">w całym wszechświecie</div>
-          <div class="match-item" data-id="q7" data-pair="1">na świecie</div>
-          <div class="match-item" data-id="q8" data-pair="3">na całym świecie</div>
+        <div class="match-col" id="match2-right">
+          <div class="match-item" data-id="m" data-pair="2">zbyt</div>
+          <div class="match-item" data-id="n" data-pair="4">najszczęśliwsza</div>
+          <div class="match-item" data-id="o" data-pair="1">tak bardzo</div>
+          <div class="match-item" data-id="p" data-pair="3">właśnie tak</div>
         </div>
       </div>
     </div>
 
-    <!-- Exercise 17: Sentence builder woman -->
-    <div class="exercise" data-exercise="17">
+    <!-- Exercise 13 -->
+    <div class="exercise" data-exercise="13">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 17 — Build the sentence</span>
-        <span class="exercise-score" id="score17"></span>
+        <span class="exercise-num">Exercise 13 — Fill in zbyt</span>
+        <span class="exercise-score" id="score13"></span>
       </div>
-      <p>Build: <strong>"You are wonderful."</strong> (to a woman)</p>
-      <p class="muted">Drag words — or tap a word, then tap a blank.</p>
-      <div class="word-bank" id="bank17">
-        <span class="word-chip" draggable="true" data-word="Jesteś" data-bank="17">Jesteś</span>
-        <span class="word-chip" draggable="true" data-word="cudowna." data-bank="17">cudowna.</span>
-        <span class="word-chip" draggable="true" data-word="cudowny." data-bank="17">cudowny.</span>
-        <span class="word-chip" draggable="true" data-word="wspaniała." data-bank="17">wspaniała.</span>
+      <p class="fill-sentence">Jesteś <input type="text" id="ex13-input" placeholder="..."> gorący.</p>
+      <p class="muted">"You are <strong>too</strong> hot." (to a man)</p>
+      <button class="btn btn-check" onclick="checkFill(13, 'zbyt')">Check answer</button>
+    </div>
+
+    <!-- Exercise 14 -->
+    <div class="exercise" data-exercise="14">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 14 — Weather</span>
+        <span class="exercise-score" id="score14"></span>
+      </div>
+      <p>How do you say <strong>"Too cold"</strong>?</p>
+      <div class="btn-row" id="ex14-options">
+        <button class="btn" data-correct="false" onclick="pickGender(this, 14)">Zbyt gorąco.</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 14)">Za zimno.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 14)">Zbyt zimno.</button>
+      </div>
+    </div>
+
+    <!-- Exercise 15 -->
+    <div class="exercise" data-exercise="15">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 15 — Fill in tak bardzo</span>
+        <span class="exercise-score" id="score15"></span>
+      </div>
+      <p class="fill-sentence">Jestem <input type="text" id="ex15-input" placeholder="..." style="min-width:120px"> szczęśliwa.</p>
+      <p class="muted">"I am <strong>so very</strong> happy."</p>
+      <button class="btn btn-check" onclick="checkFill(15, 'tak bardzo')">Check answer</button>
+    </div>
+
+    <!-- Exercise 16 -->
+    <div class="exercise" data-exercise="16">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 16 — Build the sentence</span>
+        <span class="exercise-score" id="score16"></span>
+      </div>
+      <p>Build: <strong>"You are too perfect."</strong> (to a woman)</p>
+      <div class="word-bank" id="bank16">
+        <span class="word-chip" draggable="true" data-word="Jesteś" data-bank="16">Jesteś</span>
+        <span class="word-chip" draggable="true" data-word="zbyt" data-bank="16">zbyt</span>
+        <span class="word-chip" draggable="true" data-word="idealna." data-bank="16">idealna.</span>
+        <span class="word-chip" draggable="true" data-word="idealny." data-bank="16">idealny.</span>
       </div>
       <p class="fill-sentence">
-        <span class="drop-zone" data-slot="0" data-ex="17" data-bank="17"></span>
-        <span class="drop-zone" data-slot="1" data-ex="17" data-bank="17"></span>
+        <span class="drop-zone" data-slot="0" data-ex="16" data-bank="16"></span>
+        <span class="drop-zone" data-slot="1" data-ex="16" data-bank="16"></span>
+        <span class="drop-zone" data-slot="2" data-ex="16" data-bank="16"></span>
       </p>
-      <button class="btn btn-check" onclick="checkBuilder(17, ['Jesteś','cudowna.'])">Check answer</button>
-      <button class="btn" onclick="resetBuilder(17)" style="margin-left:.5rem">Reset</button>
+      <button class="btn btn-check" onclick="checkBuilder(16, ['Jesteś','zbyt','idealna.'])">Check answer</button>
+      <button class="btn" onclick="resetBuilder(16)" style="margin-left:.5rem">Reset</button>
     </div>
 
-    <!-- Exercise 18: They are -->
+    <!-- Exercise 17 -->
+    <div class="exercise" data-exercise="17">
+      <div class="exercise-header">
+        <span class="exercise-num">Exercise 17 — Choose translation</span>
+        <span class="exercise-score" id="score17"></span>
+      </div>
+      <p>What does <strong>Dziś pogoda jest okropna</strong> mean?</p>
+      <div class="btn-row" id="ex17-options">
+        <button class="btn" data-correct="false" onclick="pickGender(this, 17)">It's too hot today.</button>
+        <button class="btn" data-correct="true" onclick="pickGender(this, 17)">Today's weather is awful.</button>
+        <button class="btn" data-correct="false" onclick="pickGender(this, 17)">I am so happy today.</button>
+      </div>
+    </div>
+
+    <!-- Exercise 18 -->
     <div class="exercise" data-exercise="18">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 18 — Fill in "to be"</span>
+        <span class="exercise-num">Exercise 18 — Reflexive match</span>
         <span class="exercise-score" id="score18"></span>
       </div>
-      <p class="fill-sentence">Oni <input type="text" id="ex18-input" placeholder="..."> wspaniali.</p>
-      <p class="muted">"They are amazing." — form of <em>być</em> for <em>oni</em></p>
-      <button class="btn btn-check" onclick="checkFill(18, 'są')">Check answer</button>
+      <p class="muted">Match the verb + się pairs.</p>
+      <div class="match-grid">
+        <div class="match-col" id="match3-left">
+          <div class="match-item" data-id="q1" data-pair="1">I'm glad</div>
+          <div class="match-item" data-id="q2" data-pair="2">I am so happy</div>
+          <div class="match-item" data-id="q3" data-pair="3">I am happy (adj.)</div>
+          <div class="match-item" data-id="q4" data-pair="4">Too hot</div>
+        </div>
+        <div class="match-col" id="match3-right">
+          <div class="match-item" data-id="q5" data-pair="2">Jestem taka szczęśliwa</div>
+          <div class="match-item" data-id="q6" data-pair="4">Zbyt gorąco</div>
+          <div class="match-item" data-id="q7" data-pair="1">Cieszę się</div>
+          <div class="match-item" data-id="q8" data-pair="3">Jestem szczęśliwa</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Exercise 19: English → Polish -->
+    <!-- Exercise 19 -->
     <div class="exercise" data-exercise="19">
       <div class="exercise-header">
-        <span class="exercise-num">Exercise 19 — Choose the translation</span>
+        <span class="exercise-num">Exercise 19 — Superlative word</span>
         <span class="exercise-score" id="score19"></span>
       </div>
-      <p>How do you say <strong>"You are amazing."</strong> to a <strong>woman</strong>?</p>
-      <div class="btn-row" id="ex19-options">
-        <button class="btn" data-correct="false" onclick="pickGender(this, 19)">Jesteś wspaniały.</button>
-        <button class="btn" data-correct="true" onclick="pickGender(this, 19)">Jesteś wspaniała.</button>
-        <button class="btn" data-correct="false" onclick="pickGender(this, 19)">Jesteś wspaniałe.</button>
-      </div>
+      <p class="fill-sentence"><input type="text" id="ex19-input" placeholder="..." style="min-width:140px"></p>
+      <p class="muted">The happiest (fem.) — one word starting with <em>naj-</em></p>
+      <button class="btn btn-check" onclick="checkFill(19, 'najszczęśliwsza')">Check answer</button>
     </div>
 
     <!-- Flashcards -->
@@ -1357,12 +1500,12 @@
         <div class="flashcard" id="flashcard" onclick="flipCard()">
           <div class="flashcard-inner">
             <div class="flashcard-front">
-              <div class="flashcard-pl" id="fc-front">cudowny / cudowna</div>
+              <div class="flashcard-pl" id="fc-front">Cieszę się</div>
               <p class="muted" style="margin-top:.5rem;font-size:.8rem">Tap to flip</p>
             </div>
             <div class="flashcard-back">
-              <div class="flashcard-en" id="fc-en">wonderful</div>
-              <div class="flashcard-ko" id="fc-ko">멋진 / 훌륭한</div>
+              <div class="flashcard-en" id="fc-en">I'm glad / happy</div>
+              <div class="flashcard-ko" id="fc-ko">기뻐요 / 행복해요</div>
             </div>
           </div>
         </div>
@@ -1414,48 +1557,37 @@
   const TOTAL_EXERCISES = 20;
 
   const vocabulary = [
-    { pl: "cudowny / cudowna / cudowne", en: "wonderful", ko: "멋진 / 훌륭한" },
-    { pl: "wspaniały / wspaniała", en: "amazing", ko: "대단한 (niesamowity)" },
-    { pl: "perfekcyjny / perfekcyjna", en: "perfect", ko: "완벽한" },
-    { pl: "najbardziej", en: "the most", ko: "가장 / 제일" },
-    { pl: "na świecie", en: "in the world", ko: "세계에서" },
-    { pl: "we wszechświecie", en: "in the universe", ko: "우주에서" },
-    { pl: "na całym świecie", en: "in the whole world", ko: "전 세계에서" },
-    { pl: "w całym wszechświecie", en: "in the whole universe", ko: "온 우주에서" },
-    { pl: "cały / cała / całe / całym", en: "whole / entire", ko: "전체의 / 온" },
-    { pl: "ja", en: "I", ko: "나" },
-    { pl: "ty", en: "you (singular)", ko: "너 / 당신" },
-    { pl: "on", en: "he", ko: "그" },
-    { pl: "ona", en: "she", ko: "그녀" },
-    { pl: "ono", en: "it (neuter)", ko: "그것" },
-    { pl: "my", en: "we", ko: "우리" },
-    { pl: "wy", en: "you (plural)", ko: "너희 / 여러분" },
-    { pl: "oni / one", en: "they", ko: "그들" },
-    { pl: "jestem", en: "I am", ko: "나는 ~이다" },
-    { pl: "jesteś", en: "you are (sg.)", ko: "너는 ~이다" },
-    { pl: "jest", en: "he/she/it is", ko: "그/그녀는 ~이다" },
-    { pl: "jesteśmy", en: "we are", ko: "우리는 ~이다" },
-    { pl: "jesteście", en: "you are (pl.)", ko: "너희는 ~이다" },
-    { pl: "są", en: "they are", ko: "그들은 ~이다" },
-    { pl: "Jesteś cudowny.", en: "You are wonderful. (to a man)", ko: "너는 멋져. (남성)" },
-    { pl: "Jesteś cudowna.", en: "You are wonderful. (to a woman)", ko: "너는 멋져. (여성)" },
-    { pl: "Jesteś wspaniały.", en: "You are amazing. (to a man)", ko: "너는 대단해. (남성)" },
-    { pl: "Jesteś wspaniała.", en: "You are amazing. (to a woman)", ko: "너는 대단해. (여성)" },
-    { pl: "Jesteś perfekcyjny.", en: "You are perfect. (to a man)", ko: "너는 완벽해. (남성)" },
-    { pl: "Jesteś perfekcyjna.", en: "You are perfect. (to a woman)", ko: "너는 완벽해. (여성)" },
-    { pl: "najlepszy / najlepsza", en: "the best", ko: "최고의" },
-    { pl: "piękny / piękna", en: "beautiful", ko: "아름다운" },
+    { pl: "Jestem szczęśliwy / szczęśliwa", en: "I am happy", ko: "행복해요 / 기뻐요" },
+    { pl: "Cieszę się", en: "I'm glad / happy", ko: "기뻐요" },
+    { pl: "się", en: "myself / each other / part of verb (same form always)", ko: "재귀 조사 (~자신 / ~서로)" },
+    { pl: "Jestem taka szczęśliwa", en: "I am so happy", ko: "너무 행복해요" },
+    { pl: "Jestem tak bardzo szczęśliwa", en: "I am so very happy", ko: "정말 너무 행복해요" },
+    { pl: "taka", en: "so / exactly (fem.)", ko: "그렇게 / 정말 (여성)" },
+    { pl: "tak bardzo", en: "so much", ko: "그렇게 많이 / 너무" },
+    { pl: "tak", en: "yes OR so / like that (depends on context)", ko: "네 / 그렇게" },
+    { pl: "taki / taka / takie", en: "such / like this / so (masc./fem./neut.)", ko: "그런 / 그렇게 (성별 변화)" },
+    { pl: "właśnie tak", en: "like this / exactly", ko: "바로 그렇게" },
+    { pl: "najszczęśliwsza", en: "the happiest (fem.)", ko: "가장 행복한 (여성)" },
+    { pl: "Jestem najbardziej szczęśliwa na świecie", en: "I am the most happy in the world", ko: "세상에서 가장 행복해요" },
+    { pl: "zbyt", en: "too", ko: "너무 (과도하게)" },
+    { pl: "Jesteś zbyt idealna", en: "You are too perfect", ko: "너무 완벽해" },
+    { pl: "idealny / idealna", en: "perfect / ideal", ko: "완벽한 / 이상적인" },
+    { pl: "Jesteś zbyt gorący", en: "You are too hot", ko: "너무 섹시해 / 더워" },
+    { pl: "Zbyt gorąco", en: "Too hot (weather)", ko: "너무 더워요" },
+    { pl: "Za zimno", en: "Too cold", ko: "너무 추워요" },
+    { pl: "Dziś pogoda jest okropna", en: "Today's weather is awful", ko: "오늘 날씨가 끔찍해요" },
+    { pl: "szczęśliwy / szczęśliwa", en: "happy", ko: "행복한" },
   ];
 
   const flashcards = [
-    { pl: "cudowny / cudowna", en: "wonderful", ko: "멋진 / 훌륭한" },
-    { pl: "wspaniały / wspaniała", en: "amazing", ko: "대단한" },
-    { pl: "perfekcyjny / perfekcyjna", en: "perfect", ko: "완벽한" },
-    { pl: "jesteś", en: "you are", ko: "너는 ~이다" },
-    { pl: "najbardziej", en: "the most", ko: "가장 / 제일" },
-    { pl: "na świecie", en: "in the world", ko: "세계에서" },
-    { pl: "w całym wszechświecie", en: "in the whole universe", ko: "온 우주에서" },
-    { pl: "jestem / jest / są", en: "I am / is / are", ko: "이다 (다양한 형태)" },
+    { pl: "Cieszę się", en: "I'm glad", ko: "기뻐요" },
+    { pl: "Jestem szczęśliwa", en: "I am happy (fem.)", ko: "행복해요" },
+    { pl: "Jestem taka szczęśliwa", en: "I am so happy", ko: "너무 행복해요" },
+    { pl: "się", en: "myself / each other / part of verb (same form always)", ko: "재귀 조사 (~자신 / ~서로)" },
+    { pl: "taka / tak bardzo", en: "so / so much", ko: "그렇게 / 너무" },
+    { pl: "zbyt", en: "too", ko: "너무 (과하게)" },
+    { pl: "najszczęśliwsza", en: "the happiest", ko: "가장 행복한" },
+    { pl: "Jesteś zbyt idealna", en: "You are too perfect", ko: "너무 완벽해" },
   ];
   let fcIndex = 0;
   const fcKnown = new Set();
@@ -1562,17 +1694,17 @@
   function checkSuperlative() {
     const a = document.getElementById('ex9a').value.trim().toLowerCase();
     const b = document.getElementById('ex9b').value.trim().toLowerCase();
-    const ok = a === 'najbardziej' && b === 'cudowna';
+    const ok = a === 'najbardziej' && b === 'szczęśliwa';
     ['ex9a','ex9b'].forEach(id => {
       const el = document.getElementById(id);
       el.classList.remove('correct','wrong');
       el.classList.add(ok ? 'correct' : 'wrong');
     });
     const scoreEl = document.getElementById('score9');
-    scoreEl.textContent = ok ? '✓ Correct!' : '✗ Answer: najbardziej cudowna';
+    scoreEl.textContent = ok ? '✓ Correct!' : '✗ Answer: najbardziej szczęśliwa';
     scoreEl.className = 'exercise-score ' + (ok ? 'correct' : 'wrong');
-    toast(ok ? 'Doskonale!' : 'Answer: najbardziej cudowna', ok ? 'success' : 'error');
-    markComplete(9);
+    toast(ok ? 'Doskonale!' : 'Answer: najbardziej szczęśliwa', ok ? 'success' : 'error');
+    if (ok) markComplete(9);
   }
 
   // ─── Matching ───
